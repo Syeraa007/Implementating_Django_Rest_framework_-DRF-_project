@@ -12,11 +12,15 @@ class BookListCreate(generics.ListCreateAPIView):
     serializer_class = BookSerializer
     # New
     authentication_classes = [TokenAuthentication,]
-    permission_classes = [permissions.IsAuthenticated,]
+    permission_classes = [permissions.AllowAny,]
+    # permission_classes = [permissions.IsAuthenticatedOrReadOnly,]
+    # permission_classes = [permissions.IsAuthenticated,]
 
 class BookRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
     # New
     authentication_classes = [TokenAuthentication,]
-    permission_classes = [permissions.IsAuthenticated,]
+    permission_classes = [permissions.AllowAny,]
+    # permission_classes = [permissions.IsAuthenticatedOrReadOnly,]
+    # permission_classes = [permissions.IsAuthenticated,]
